@@ -16,6 +16,8 @@ expenses_database: This creates your database that stores all of your expenses.
 
 test_current_budget: This is a unittest file that makes sure your budget is correctly calculating. Make sure that when you are running the test, you are in the same directory as the test folder and the src folder.
 
+Run the following in the terminal: python -m unittest .\test\test_current_budget
+
 money.txt: This is the money sign that will pop up in the beginning of your code.
 
 # How to use the project
