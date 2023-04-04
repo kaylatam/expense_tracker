@@ -12,7 +12,7 @@ Once everything is downloaded,
 
 1. Run the expense_tracker file which is the main program and where you'll be inputting all of your expenses.
 The image below is what you should see when you run your code: 
-![Capture](Capture.png)
+image.png
 
 expense_tracker: This is the main window, where you'll be inputting all of your expenses.
 
