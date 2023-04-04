@@ -10,7 +10,6 @@ class TestCurrentBudget(unittest.TestCase):
         E.Add_Budget(2000)
 
         self.assertEqual(E.add_expense(100), 1900)
-        # self.assertEqual(E.purchase_prompt(), True)
 
 
 if __name__ == "__main__":
