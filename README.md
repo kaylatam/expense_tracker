@@ -8,7 +8,11 @@ This program is designed to have you input each expense you have. When you input
 # How to run the project
 Simply download all the files in the src and test folder and the money.txt file.
 
-Once everything is downloaded, run the expense_tracker file which is the main program and where you'll be inputting all of your expenses.
+Once everything is downloaded,
+
+1. Run the expense_tracker file which is the main program and where you'll be inputting all of your expenses.
+The image below is what you should see when you run your code: 
+![Capture](Capture.png)
 
 expense_tracker: This is the main window, where you'll be inputting all of your expenses.
 
