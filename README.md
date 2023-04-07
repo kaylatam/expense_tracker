@@ -16,7 +16,7 @@ This program is designed to have you input each expense you have. When you input
 - **money.txt**: This is the money sign that will pop up in the beginning of your code. MAKE SURE THAT THIS FILE WILL BE IN THE SAME FOLDER AS YOUR src AND test FOLDER
 
 # How to run the project
-Simply download all the files in the src and test folder and the money.txt file.
+Simply download all the files in the src and test folder and the money.txt file. With the expense.db file in the src folder, delete it once it is downloaded. You will create your own with the expenses_database file.
 
 Once everything is downloaded,
 
