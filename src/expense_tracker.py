@@ -109,55 +109,28 @@ class Expense:
         print("14. Personal")
         print("15. Miscellaneous")
 
+        dict = {
+            1: "Groceries",
+            2: "Housing",
+            3: "Transportation/Car Maintenance",
+            4: "Travel",
+            5: "Eating Out",
+            6: "Bills",
+            7: "Childcare",
+            8: "Pet Food and Care",
+            9: "Clothing and Personal Upkeep",
+            10: "Subscriptions",
+            11: "Entertainment",
+            12: "Loans",
+            13: "Large Purchases",
+            14: "Personal",
+            15: "Miscellaneous",
+        }
+
         while True:
-            descrip = int(input())
-            if descrip == 1:
-                self.category = "Groceries"
-                break
-            if descrip == 2:
-                self.category = "Housing"
-                break
-            if descrip == 3:
-                self.category = "Transportation/Car Maintenance"
-                break
-            if descrip == 4:
-                self.category = "Travel"
-                break
-            if descrip == 5:
-                self.category = "Eating out"
-                break
-            if descrip == 6:
-                self.category = "Bills"
-                break
-            if descrip == 7:
-                self.category = "Childcare"
-                break
-            if descrip == 8:
-                self.category = "Pet Food and Care"
-                break
-            if descrip == 9:
-                self.category = "Clothing and Personal Upkeep"
-                break
-            if descrip == 10:
-                self.category = "Subscriptions"
-                break
-            if descrip == 11:
-                self.category = "Entertainment"
-                break
-            if descrip == 12:
-                self.category = "Loans"
-                break
-            if descrip == 13:
-                self.category = "Large Purchases"
-                break
-            if descrip == 14:
-                self.category = "Personal"
-                break
-            if descrip == 15:
-                self.category = "Miscellaneous"
-                break
-            else:
-                print("Please enter a valid number")
+            category_number = int(input())
+            self.category = dict.get(category_number, "Please enter a valid number")
+            break
 
         return self.category
 
@@ -234,10 +207,11 @@ if __name__ == "__main__":
 
     E = Expense()
 
-    # Setting up the money sign; this is just for fun
+    # Setting up the money sign
     with open("money.txt", "r") as f:
         for line in f:
             print(line.rstrip())
+    f.close()
 
     print("Welcome to your expense tracker!")
 
