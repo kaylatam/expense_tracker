@@ -34,6 +34,8 @@ class Expense:
         print("3. View Expenses")
         # Lets the user see their current budget left
         print("4. Current budget")
+        # Lets the user add to their current budget
+        print("5. Add to budget")
 
     def update_income(self):
         """Prompts user for their income"""
@@ -54,19 +56,19 @@ class Expense:
 
     def purchase_prompt(self):
         """Prompts user for a numerical value when adding their expense"""
-        is_valid = False
 
+        is_valid = False
         while is_valid == False:
             try:
                 self.new_expense = float(input("Please enter your expense($):"))
 
-                if self.new_expense == int:
+                if self.new_expense == int or float:
                     is_valid = True
 
             except Exception as e:
                 print("Wrong input!")
 
-            return self.new_expense
+        return self.new_expense
 
     def purchase_date(self):
         """Asks the user the date of purchase for the expense"""
@@ -182,11 +184,11 @@ class Expense:
 
         self.cursor.execute(sql)
         self.connection.commit()
+
         print("Your expense has been recorded")
 
     def add_expense(self, new_expense):
         """Calculates the new budget"""
-
         self.budget = self.budget - new_expense
 
         return self.budget
@@ -200,6 +202,35 @@ class Expense:
         """Adds the budget"""
 
         self.budget = budget
+
+    def add_to_current_budget(self):
+        """Adds to the users current budget"""
+        print("How much would you like to add to your current budget?")
+        self.budget += int(input())
+
+        print("Your current budget is ($):", str(self.budget), end="\n")
+
+    def delete_expense(self, id):
+        """Deletes an expense by id"""
+
+        try:
+            delete_id = """DELETE from expense where id = ?"""
+            self.cursor.execute(delete_id, (id,))
+            self.connection.commit()
+            print("Expense deleted successfully")
+
+            self.cursor.close()
+
+        except sqlite3.Error as error:
+            print("Failed to delete reocord from expense table", error)
+
+    def delete_all_expenses(self):
+        self.cursor.execute("DELETE FROM expense")
+
+        self.connection.commit()
+        self.connection.close()
+
+        print("Your table has been deleted")
 
 
 # Main Program
@@ -241,7 +272,22 @@ if __name__ == "__main__":
             E.insert_to_database(date, description, category, new_expense, method)
 
         elif choice == 2:
-            pass
+            print("Please select what you would like to do:")
+            print("1. Delete expense")
+            print("2. Delete all expenses")
+
+            delete_choice = int(input())
+
+            # Deletes row of expense
+            if delete_choice == 1:
+                print("Please type which row you'd like to delete (based on the id):")
+                delete_id = int(input())
+                E.delete_expense(delete_id)
+
+            # Deletes table of expenses: Resets table, but you need to restart program and enter your budget
+            elif choice == 2:
+                E.delete_all_expenses()
+
         elif choice == 3:
             pass
         # Shows the user their current budget
