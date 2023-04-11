@@ -16,21 +16,21 @@ This program is designed to have you input each expense you have. When you input
 - **money.txt**: This is the money sign that will pop up in the beginning of your code. MAKE SURE THAT THIS FILE WILL BE IN THE SAME FOLDER AS YOUR src AND test FOLDER
 
 # How to run the project
-Simply download all the files in the src and test folder and the money.txt file. With the expense.db file in the src folder, delete it once it is downloaded. You will create your own with the expenses_database file. 
+Simply download all the files in the src and test folder and the money.txt file. 
 
 Once everything is downloaded,
 
-1. Run the expenses_database program; this will create your database and where all of your expenses will be inputted
+1. Create an expense_tracker folder; this will contain your src and test folders 
 
-2. Run the expense_tracker file which is the main program and where you'll be inputting all of your expenses.
+2. Make sure that the **money.txt** file and your **expenses.db** file is in the same pathway as the program you are using to run your code NOT in the src, test, or expense_tracker folder 
+
+3. Run the **expense_tracker** program
  
 
-3. Follow the prompts that come up in the terminal. 
-
-With the money.txt file and your expenses.db file (that you have created), make sure that it's in the same pathway as the program you are using to run your code. 
+4. Follow the prompts that come up in the terminal. 
 
 
-To run test_current_budget:
+To run **test_current_budget**:
 
 1. Run the following in the terminal: python -m unittest .\test\test_current_budget
 
