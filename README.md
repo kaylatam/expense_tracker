@@ -11,12 +11,12 @@ This program is designed to have you input each expense you have. When you input
 
 - **expenses_database**: This creates your database that stores all of your expenses.
 
-- **test_current_budget**: This is a unittest file that makes sure your budget is correctly calculating. Make sure that when you are running the test, you are in the same directory as the test folder and the src folder.
+- **test_current_budget**: This is a unittest file that makes sure your budget is correctly calculating once an expense has been added. Make sure that when you are running the test, you are in the same directory as the test folder and the src folder.
 
 - **money.txt**: This is the money sign that will pop up in the beginning of your code. MAKE SURE THAT THIS FILE WILL BE IN THE SAME FOLDER AS YOUR src AND test FOLDER
 
 # How to run the project
-Simply download all the files in the src and test folder and the money.txt file. With the expense.db file in the src folder, delete it once it is downloaded. You will create your own with the expenses_database file. With the money.txt file and your expenses.db file, make sure that it's in the same pathway as the program you are using to run your code. 
+Simply download all the files in the src and test folder and the money.txt file. With the expense.db file in the src folder, delete it once it is downloaded. You will create your own with the expenses_database file. 
 
 Once everything is downloaded,
 
@@ -26,6 +26,8 @@ Once everything is downloaded,
  
 
 3. Follow the prompts that come up in the terminal. 
+
+With the money.txt file and your expenses.db file (that you have created), make sure that it's in the same pathway as the program you are using to run your code. 
 
 
 To run test_current_budget:
