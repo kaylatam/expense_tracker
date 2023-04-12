@@ -302,8 +302,6 @@ if __name__ == "__main__":
 
         elif choice == 3:
             # Let's the user see their expenses
-            print("Please select what you would like to do:")
-            print("1. View all expenses")
             view_choice = int(input())
 
             if view_choice == 1:
