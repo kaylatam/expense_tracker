@@ -149,6 +149,7 @@ class Expense:
         print("6. Venmo")
 
         while True:
+            # Categorizes the method of payment based on user input
             method2 = int(input())
             if method2 == 1:
                 self.method = "Credit Card"
@@ -214,6 +215,7 @@ class Expense:
         """Deletes an expense by id"""
 
         try:
+            # Obtains the id from the user that they want to delete and deletes the row where that id is
             delete_id = """DELETE from expense where id = ?"""
             self.cursor.execute(delete_id, (id,))
             self.connection.commit()
@@ -225,12 +227,21 @@ class Expense:
             print("Failed to delete reocord from expense table", error)
 
     def delete_all_expenses(self):
+        """Deletes all data from the expense db"""
         self.cursor.execute("DELETE FROM expense")
 
         self.connection.commit()
         self.connection.close()
 
         print("Your table has been deleted")
+
+    def view_all_expenses(self):
+        """Let's the user view all of their expenses"""
+        # This part is fetching all the data from the expense database
+        self.cursor.execute("SELECT * FROM expense")
+        expenses = self.cursor.fetchall()
+        for expense in expenses:
+            print(expense)
 
 
 # Main Program
@@ -272,6 +283,7 @@ if __name__ == "__main__":
             E.insert_to_database(date, description, category, new_expense, method)
 
         elif choice == 2:
+            # Letting the user view their expenses
             print("Please select what you would like to do:")
             print("1. Delete expense")
             print("2. Delete all expenses")
@@ -289,7 +301,18 @@ if __name__ == "__main__":
                 E.delete_all_expenses()
 
         elif choice == 3:
-            pass
+            # Let's the user see their expenses
+            print("Please select what you would like to do:")
+            print("1. View all expenses")
+            print("2. View expenses by category")
+            view_choice = int(input())
+
+            if view_choice == 1:
+                E.view_all_expenses()
+
+            if view_choice == 2:
+                pass
+
         # Shows the user their current budget
         elif choice == 4:
             E.show_budget()
