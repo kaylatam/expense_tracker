@@ -304,14 +304,10 @@ if __name__ == "__main__":
             # Let's the user see their expenses
             print("Please select what you would like to do:")
             print("1. View all expenses")
-            print("2. View expenses by category")
             view_choice = int(input())
 
             if view_choice == 1:
                 E.view_all_expenses()
-
-            if view_choice == 2:
-                pass
 
         # Shows the user their current budget
         elif choice == 4:
