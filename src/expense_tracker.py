@@ -343,7 +343,7 @@ if __name__ == "__main__":
 
             if view_choice == 1:
                 print("Which category would you like to view?")
-                view_category = input()
+                view_category = E.purchase_category()
                 E.view_by_category(view_category)
 
             elif view_choice == 2:
