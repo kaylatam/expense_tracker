@@ -359,5 +359,7 @@ if __name__ == "__main__":
         # Shows the user their current budget
         elif choice == 4:
             E.show_budget()
+        elif choice == 5:
+            E.add_to_current_budget()
         else:
             print("Please enter a valid number")
