@@ -30,7 +30,7 @@ class Expense:
         print("1. Add expense")
         # Deletes an expense entry
         print("2. Delete expense")
-        # Lets the user their expenses in a pie chart, line graph, or by category
+        # Lets the user their expenses by month and year
         print("3. View Expenses")
         # Lets the user see their current budget left
         print("4. Current budget")
@@ -221,8 +221,6 @@ class Expense:
             self.connection.commit()
             print("Expense deleted successfully")
 
-            self.cursor.close()
-
         except sqlite3.Error as error:
             print("Failed to delete reocord from expense table", error)
 
@@ -231,7 +229,6 @@ class Expense:
         self.cursor.execute("DELETE FROM expense")
 
         self.connection.commit()
-        self.connection.close()
 
         print("Your table has been deleted")
 
@@ -242,6 +239,41 @@ class Expense:
         expenses = self.cursor.fetchall()
         for expense in expenses:
             print(expense)
+
+    def view_by_date(self, month, year):
+        """Lets the user view their expenses depending on the date."""
+        self.cursor.execute("SELECT * FROM expense")
+        expenses = self.cursor.fetchall()
+
+        # dictionary to keep track of total expenses for each category
+        category_totals = {}
+
+        for expense in expenses:
+            expense_date = datetime.datetime.strptime(
+                expense[1], "%m-%d-%Y"
+            )  # convert string to date object
+            if expense_date.month == int(month) and expense_date.year == int(year):
+                category = expense[3]
+                price = expense[4]
+                if category in category_totals:
+                    category_totals[category] += price
+                else:
+                    category_totals[category] = price
+
+        for category, total in category_totals.items():
+            print(f"Category: {category}, Total: {total}")
+
+    def view_by_category(self, category):
+        """Lets the user view their total expenses for a specific category."""
+        self.cursor.execute("SELECT * FROM expense WHERE category = ?", (category,))
+        expenses = self.cursor.fetchall()
+
+        # calculate total expense for the given category
+        total = 0
+        for expense in expenses:
+            total += expense[4]
+
+        print(f"Total expenses for category {category}: {total}")
 
 
 # Main Program
@@ -302,9 +334,26 @@ if __name__ == "__main__":
 
         elif choice == 3:
             # Let's the user see their expenses
+            print("Please select what you would like to do:")
+            print("1. View expenses by category")
+            print("2. View expenses by date")
+            print("3. View all expenses")
+
             view_choice = int(input())
 
             if view_choice == 1:
+                print("Which category would you like to view?")
+                view_category = input()
+                E.view_by_category(view_category)
+
+            elif view_choice == 2:
+                print("Which month would you like to view? (Enter as MM)")
+                month = int(input())
+                print("Which year would you like to view? (Enter as YYYY)")
+                year = int(input())
+
+                E.view_by_date(month, year)
+            else:
                 E.view_all_expenses()
 
         # Shows the user their current budget
