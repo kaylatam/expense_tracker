@@ -20,9 +20,10 @@ Simply download all the files in the src and test folder and the money.txt file.
 
 Once everything is downloaded,
 
-1. Create an expense_tracker folder; this will contain your src and test folders 
+1. Run the **expenses_database.py** file. This will create your database and store your expenses.
 
-2. Make sure that the **money.txt** file and your **expenses.db** file is in the same pathway as the program you are using to run your code NOT in the src, test, or expense_tracker folder 
+2. Make sure that the **money.txt** file and your **expenses.db** (created after you run your expenses_database.py file) file is in the same pathway as the program you are using to run your code NOT in the src, test, or expense_tracker folder
+ 
 
 3. Run the **expense_tracker** program
  
