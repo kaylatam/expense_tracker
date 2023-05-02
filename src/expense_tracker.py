@@ -1,5 +1,4 @@
 import sqlite3
-import matplotlib as plt
 import datetime
 import re
 import unittest
@@ -43,7 +42,6 @@ class Expense:
         self.income = float(input("Please enter your post-tax monthly income($):"))
 
     def update_savings(self):
-
         """Prompts user how much they would like to save per month"""
         self.savings = float(
             input("Please enter the amount you would like to save each month($):")
@@ -278,7 +276,6 @@ class Expense:
 
 # Main Program
 if __name__ == "__main__":
-
     E = Expense()
 
     # Setting up the money sign
