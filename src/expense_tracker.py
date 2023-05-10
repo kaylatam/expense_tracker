@@ -176,12 +176,11 @@ class Expense:
         """Inputs all the data into the Expenses db"""
 
         # Inserting all the user input into the expense table
-        # First set of parenthesis lists the columns, the next asks for the placeholders, then after, it passes the values obtained from the user
-        sql = """INSERT INTO expense (Date, Description, Category, Price, MethodofPayment) VALUES ('{}','{}','{}','{}','{}');""".format(
-            date, description, category, new_expense, method
-        )
+        # Using parameterized query with placeholders
+        sql = "INSERT INTO expense (Date, Description, Category, Price, MethodofPayment) VALUES (?, ?, ?, ?, ?);"
+        values = (date, description, category, new_expense, method)
 
-        self.cursor.execute(sql)
+        self.cursor.execute(sql, values)
         self.connection.commit()
 
         print("Your expense has been recorded")
